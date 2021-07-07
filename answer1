@@ -1,1 +1,19 @@
+from qiskit import *
+from qiskit.quantum_info import Statevector
+from qiskit.tools.visualization import plot_histogram
+import numpy as np
+# Question 1 (a)
 
+# Defining the circuit and the initial state |psi> = |00>
+circ1 = QuantumCircuit(2)
+psi1 = Statevector.from_label('00')
+
+circ1.h(0)
+circ1.z(1)
+
+
+# Drawing the circuit you built
+circ1.draw('mpl')
+
+# Evolving the Statevector based on the circuit you constructed
+psi1.evolve(circ1)
