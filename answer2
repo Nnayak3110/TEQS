@@ -1,0 +1,15 @@
+# Question 1 (b)
+
+# Defining the circuit and the initial state |psi> = |00>
+circ2 = QuantumCircuit(2)
+psi2 = Statevector.from_label('00')
+
+circ2.h(0)
+circ2.cx(0,1)
+circ2.z(0)
+circ2.x(1)
+
+circ2.draw('mpl')
+
+# Evolve the Statevector based on the circuit you constructed:
+psi1.evolve(circ2)
