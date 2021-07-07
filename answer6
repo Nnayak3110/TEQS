@@ -1,0 +1,21 @@
+psiPlus = QuantumCircuit(2,2)
+
+# Build and draw circuit
+psiPlus.h(0)
+psiPlus.x(1)
+psiPlus.cx(0,1)
+psiPlus.draw('mpl')
+psiPlus.measure((0,1),(0,1))
+
+
+
+# Simulate on Aer and get counts
+from qiskit import Aer, execute
+backend = Aer.get_backend('aer_simulator')
+job = execute(psiPlus,backend=backend,shots=4200)
+result = job.result()
+counts = result.get_counts()
+
+
+# Plot histogram with counts
+plot_histogram(counts)
